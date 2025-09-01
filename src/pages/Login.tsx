@@ -97,10 +97,19 @@ const Login: React.FC = () => {
             Demo Credentials:
           </Typography>
           <Typography variant="body2" color="textSecondary" sx={{ mt: 1, fontWeight: 500 }}>
+            SUPERADMIN: admin@llmtracker.com / password123
+          </Typography>
+          <Typography variant="body2" color="textSecondary" sx={{ fontWeight: 500 }}>
             Admin: john.smith@techcorp.com / password123
           </Typography>
           <Typography variant="body2" color="textSecondary" sx={{ fontWeight: 500 }}>
             User: sarah.johnson@techcorp.com / password123
+          </Typography>
+          <Typography variant="body2" color="textSecondary" sx={{ fontWeight: 500 }}>
+            Admin: mike.davis@dataflow.com / password123
+          </Typography>
+          <Typography variant="body2" color="textSecondary" sx={{ fontWeight: 500 }}>
+            User: lisa.wang@aiinnovations.com / password123
           </Typography>
         </Box>
       </Paper>

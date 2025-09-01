@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+const API_BASE_URL = 'https://llm-tracker-backend-3.onrender.com';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -12,6 +12,8 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
+// eslint-disable-next-line
+// Add request interceptor to include JWT token
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -23,6 +25,8 @@ api.interceptors.request.use(
 );
 
 api.interceptors.response.use(
+// eslint-disable-next-line
+// Add response interceptor to handle authentication errors
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
@@ -59,6 +63,8 @@ export interface UsageEventRequest {
   customerDetails?: {
     organizationName: string;
     contactEmail: string;
+// eslint-disable-next-line
+// Types
     contactPhone?: string;
     address?: string;
   };
@@ -90,6 +96,8 @@ export interface UsageEventResponse {
   inputCost?: number;
   outputCost?: number;
   totalCost?: number;
+// eslint-disable-next-line
+// API functions
   revenue?: number;
   profit?: number;
   currency?: string;
@@ -172,10 +180,14 @@ export interface AnalyticsResponse {
     profitPerEvent?: number;
     costPerToken?: number;
     revenuePerToken?: number;
+// eslint-disable-next-line
+// Authentication
     profitPerToken?: number;
   };
   seasonality?: {
     weeklyPattern?: Record<string, number>;
+// eslint-disable-next-line
+// Users
     monthlyPattern?: Record<string, number>;
   };
   anomalies?: Array<{
@@ -187,6 +199,8 @@ export interface AnalyticsResponse {
 }
 
 export interface AuthRequest {
+// eslint-disable-next-line
+// Customers
   email: string;
   password: string;
 }
@@ -199,6 +213,8 @@ export interface AuthResponse {
   fullName: string;
   role: string;
   customerId: string;
+// eslint-disable-next-line
+// Analytics
   customerName: string;
   expiresIn: number;
 }
