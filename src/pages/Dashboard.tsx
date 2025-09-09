@@ -86,6 +86,9 @@ const Dashboard: React.FC = () => {
         start = startOfMonth(today);
         end = endOfMonth(today);
         break;
+      case 'last3months':
+        start = subDays(today, 90);
+        break;
       case 'thisyear':
         start = startOfYear(today);
         end = endOfYear(today);
@@ -191,6 +194,8 @@ const Dashboard: React.FC = () => {
         return 'Last 30 Days';
       case 'thismonth':
         return 'This Month';
+      case 'last3months':
+        return 'Last 3 Months';
       case 'thisyear':
         return 'This Year';
       case 'alltime':
@@ -304,6 +309,7 @@ const Dashboard: React.FC = () => {
               <MenuItem value="7days">Last 7 Days</MenuItem>
               <MenuItem value="30days">Last 30 Days</MenuItem>
               <MenuItem value="thismonth">This Month</MenuItem>
+              <MenuItem value="last3months">Last 3 Months</MenuItem>
               <MenuItem value="thisyear">This Year</MenuItem>
               <MenuItem value="alltime">All Time</MenuItem>
             </Select>
